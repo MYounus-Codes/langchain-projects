@@ -6,7 +6,7 @@ load_dotenv()
 
 model = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash",
-    api_key="AIzaSyAqEXx8bi6SF0Ci7daAGPuBkuCKElzgD20"
+    api_key="your_google_api_key_here"
 )
 
 def chat_with_model(user_input):
