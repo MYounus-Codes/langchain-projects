@@ -19,7 +19,7 @@ load_dotenv()
 print("--- LangChain RAG with HuggingFace Embeddings & Gemini Chat ---")
 
 # --- 0. Environment ---
-GOOGLE_API_KEY = "AIzaSyDYwM3vW9Lx72OnCN5QKOZmaOawOg5YWm0"
+GOOGLE_API_KEY = os.getenv("GEMINI_API_KEY")
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 PINECONE_ENVIRONMENT = os.getenv("PINECONE_ENVIRONMENT")
 
