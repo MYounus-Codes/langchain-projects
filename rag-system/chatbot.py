@@ -7,30 +7,30 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 from langchain_pinecone import PineconeVectorStore
 from langchain_core.prompts import ChatPromptTemplate
-from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain.chains import create_retrieval_chain
+from langchain_classic.chains.combine_documents import create_stuff_documents_chain
+from langchain_classic.chains import create_retrieval_chain
 
 print("--- LangChain RAG with Google Embeddings & Pinecone ---")
 
 # --- 0. Configuration and Environment Setup ---
 # Ensure your environment variables are set before running this script
-# export GOOGLE_API_KEY='your_google_api_key'
+# export GEMINI_API_KEY='your_GEMINI_API_KEY'
 # export PINECONE_API_KEY='your_pinecone_api_key'
 # export PINECONE_ENVIRONMENT='your_pinecone_environment' # e.g., gcp-starter, us-east-1
 
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
 PINECONE_ENVIRONMENT = os.getenv("PINECONE_ENVIRONMENT")
 
-if not GOOGLE_API_KEY:
-    raise ValueError("GOOGLE_API_KEY environment variable not set.")
+if not GEMINI_API_KEY:
+    raise ValueError("GEMINI_API_KEY environment variable not set.")
 if not PINECONE_API_KEY or not PINECONE_ENVIRONMENT:
     raise ValueError("PINECONE_API_KEY or PINECONE_ENVIRONMENT environment variables not set.")
 
 # Pinecone index details
 INDEX_NAME = "langchain-google-rag-hello-world"
 EMBEDDING_MODEL_NAME = "models/embedding-001" # Google's text embedding model
-LLM_MODEL_NAME = "gemini-pro" # Google's generative model
+LLM_MODEL_NAME = "gemini-2.5-flash" # Google's generative model
 
 # --- 1. Load Documents ---
 print("\n1. Loading documents...")
